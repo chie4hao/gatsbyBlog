@@ -18,7 +18,6 @@ function withRoot(Component) {
       // Remove the server-side injected CSS.
       const jssStyles = document.querySelector('#server-side-jss');
       if (jssStyles && jssStyles.parentNode) {
-        console.log(2345667);
         jssStyles.parentNode.removeChild(jssStyles);
       }
     }
