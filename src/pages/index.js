@@ -1,65 +1,130 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import get from 'lodash/get'
-import Helmet from 'react-helmet'
+import PropTypes from "prop-types";
+import React from "react";
 
-import Bio from '../components/Bio'
-import { rhythm } from '../utils/typography'
+import { ThemeContext } from "../layouts";
+import Blog from "../components/Blog";
+import Hero from "../components/Hero";
+import Seo from "../components/Seo";
 
-class BlogIndex extends React.Component {
+class IndexPage extends React.Component {
+  separator = React.createRef();
+
+  scrollToContent = e => {
+    this.separator.current.scrollIntoView({ block: "start", behavior: "smooth" });
+  };
+
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allMarkdownRemark.edges')
+    const {
+      data: {
+        posts: { edges: posts = [] },
+        bgDesktop: {
+          resize: { src: desktop }
+        },
+        bgTablet: {
+          resize: { src: tablet }
+        },
+        bgMobile: {
+          resize: { src: mobile }
+        },
+        site: {
+          siteMetadata: { facebook }
+        }
+      }
+    } = this.props;
+
+    const backgrounds = {
+      desktop,
+      tablet,
+      mobile
+    };
 
     return (
-      <div>
-        <Helmet title={siteTitle} />
-        <Bio />
-        {posts.map(({ node }) => {
-          const title = get(node, 'frontmatter.title') || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
-          )
-        })}
-      </div>
-    )
+      <React.Fragment>
+        <ThemeContext.Consumer>
+          {theme => (
+            <Hero scrollToContent={this.scrollToContent} backgrounds={backgrounds} theme={theme} />
+          )}
+        </ThemeContext.Consumer>
+
+        <hr ref={this.separator} />
+
+        <ThemeContext.Consumer>
+          {theme => <Blog posts={posts} theme={theme} />}
+        </ThemeContext.Consumer>
+
+        <Seo facebook={facebook} />
+
+        <style jsx>{`
+          hr {
+            margin: 0;
+            border: 0;
+          }
+        `}</style>
+      </React.Fragment>
+    );
   }
 }
 
-export default BlogIndex
+IndexPage.propTypes = {
+  data: PropTypes.object.isRequired
+};
 
-export const pageQuery = graphql`
+export default IndexPage;
+
+//eslint-disable-next-line no-undef
+export const guery = graphql`
   query IndexQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    posts: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "//posts/[0-9]+.*--/" } }
+      sort: { fields: [fields___prefix], order: DESC }
+    ) {
       edges {
         node {
           excerpt
           fields {
             slug
+            prefix
           }
           frontmatter {
-            date(formatString: "DD MMMM, YYYY")
             title
+            category
+            author
+            cover {
+              children {
+                ... on ImageSharp {
+                  sizes(maxWidth: 800, maxHeight: 360) {
+                    ...GatsbyImageSharpSizes_withWebp
+                  }
+                }
+              }
+            }
           }
         }
       }
     }
+    site {
+      siteMetadata {
+        facebook {
+          appId
+        }
+      }
+    }
+    bgDesktop: imageSharp(id: { regex: "/hero-background/" }) {
+      resize(width: 1200, quality: 90, cropFocus: CENTER) {
+        src
+      }
+    }
+    bgTablet: imageSharp(id: { regex: "/hero-background/" }) {
+      resize(width: 800, height: 1100, quality: 90, cropFocus: CENTER) {
+        src
+      }
+    }
+    bgMobile: imageSharp(id: { regex: "/hero-background/" }) {
+      resize(width: 450, height: 850, quality: 90, cropFocus: CENTER) {
+        src
+      }
+    }
   }
-`
+`;
+
+//hero-background
