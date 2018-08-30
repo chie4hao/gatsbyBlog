@@ -9,12 +9,13 @@ const Hero = props => {
   return (
     <React.Fragment>
       <section className="hero">
-        <h1>
+        {/*<h1>
           This is a demo site of&nbsp;the <strong>heroBlog</strong> GatsbyJS starter
         </h1>
         <button onClick={scrollToContent} aria-label="scroll">
           <FaArrowDown />
         </button>
+        */}
       </section>
 
       {/* --- STYLES --- */}
@@ -28,9 +29,12 @@ const Hero = props => {
           display: flex;
           flex-flow: column nowrap;
           justify-content: center;
-          min-height: 100vh;
+          min-height: 100px;
+          max-height: 100px;
           height: 100px;
+          /*
           padding: ${theme.space.inset.l};
+          */
           padding-top: ${theme.header.height.homepage};
         }
 
