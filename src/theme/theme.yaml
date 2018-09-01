@@ -125,6 +125,7 @@ heading:
     h3: *font-line-height-xs
   weight: 600
 line:
+  pricolor: '#f3f2f2'
   color: *color-gray-3
 icon:
   color: *color-brand-primary

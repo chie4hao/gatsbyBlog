@@ -17,18 +17,22 @@ const Item = props => {
         title,
         category,
         author,
+        cover
+        /*
         cover: {
           children: [{ sizes }]
-        }
+        }*/
       }
     }
   } = props;
+
+  let sizes = cover ? cover.children[0].sizes : null;
 
   return (
     <React.Fragment>
       <li>
         <Link to={slug} key={slug} className="link">
-          <Img sizes={sizes} />
+          {sizes && <Img sizes={sizes} />}
           <h1>
             {title} <FaArrowRight className="arrow" />
           </h1>
@@ -57,7 +61,10 @@ const Item = props => {
         }
 
         li {
+          border: 1px solid ${theme.line.pricolor};
+          /*
           border: 1px solid transparent;
+          */
           border-radius: ${theme.size.radius.default};
           margin: ${`calc(${theme.space.default} * 2) 0 calc(${theme.space.default} * 3)`};
           padding: ${theme.space.inset.s};
