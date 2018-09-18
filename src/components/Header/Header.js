@@ -7,7 +7,7 @@ import { ScreenWidthContext, FontLoadedContext } from "../../layouts";
 import config from "../../../content/meta/config";
 import Menu from "../Menu";
 
-import avatar from "../../images/jpg/avatar.jpg";
+// import avatar from "../../images/jpg/avatar.jpg";
 
 class Header extends React.Component {
   state = {
@@ -30,7 +30,7 @@ class Header extends React.Component {
   };
 
   render() {
-    const { pages, path, theme } = this.props;
+    const { pages, path, theme, avatar } = this.props;
     const { fixed } = this.state;
 
     return (
@@ -251,7 +251,8 @@ class Header extends React.Component {
 Header.propTypes = {
   pages: PropTypes.array.isRequired,
   path: PropTypes.string.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
+  avatar: PropTypes.string.isRequired
 };
 
 export default Header;

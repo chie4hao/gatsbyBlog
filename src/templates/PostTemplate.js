@@ -15,6 +15,9 @@ const PostTemplate = props => {
       authornote: { html: authorNote },
       site: {
         siteMetadata: { facebook }
+      },
+      bgAvatar: {
+        resize: { src: avatar }
       }
     },
     pathContext: { next, prev }
@@ -32,6 +35,7 @@ const PostTemplate = props => {
               authornote={authorNote}
               facebook={facebook}
               theme={theme}
+              avatar={avatar}
             />
           </Article>
         )}
@@ -81,6 +85,11 @@ export const postQuery = graphql`
         facebook {
           appId
         }
+      }
+    }
+    bgAvatar: imageSharp(id: { regex: "/avatar/" }) {
+      resize(width: 200, height: 200) {
+        src
       }
     }
   }

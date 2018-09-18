@@ -78,7 +78,10 @@ class Layout extends React.Component {
     const { children, data } = this.props;
     const {
       footnote: { html: footnoteHTML },
-      pages: { edges: pages }
+      pages: { edges: pages },
+      bgAvatar: {
+        resize: { src: avatar }
+      }
     } = data;
 
     return (
@@ -86,7 +89,12 @@ class Layout extends React.Component {
         <FontLoadedContext.Provider value={this.state.font400loaded}>
           <ScreenWidthContext.Provider value={this.state.screenWidth}>
             <React.Fragment>
-              <Header path={this.props.location.pathname} pages={pages} theme={this.state.theme} />
+              <Header
+                path={this.props.location.pathname}
+                pages={pages}
+                theme={this.state.theme}
+                avatar={avatar}
+              />
               <main>{children()}</main>
               <Footer html={footnoteHTML} theme={this.state.theme} />
 
@@ -178,5 +186,10 @@ export const postQuery = graphql`
       id
       html
     }
+    bgAvatar: imageSharp(id: { regex: "/avatar/" }) {
+			resize(width: 200, height: 200) {
+      	src
+      }    
+  	}
   }
 `;

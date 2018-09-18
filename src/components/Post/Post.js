@@ -30,7 +30,8 @@ const Post = props => {
     facebook,
     next: nextPost,
     prev: prevPost,
-    theme
+    theme,
+    avatar
   } = props;
 
   return (
@@ -42,7 +43,7 @@ const Post = props => {
       <Bodytext html={html} theme={theme} />
       <footer>
         <Share post={post} theme={theme} />
-        <Author note={authornote} theme={theme} />
+        <Author note={authornote} theme={theme} avatar={avatar} />
         <NextPrev next={nextPost} prev={prevPost} theme={theme} />
         {/* <Comments slug={slug} facebook={facebook} theme={theme} /> */}
       </footer>
@@ -56,7 +57,8 @@ Post.propTypes = {
   facebook: PropTypes.object.isRequired,
   next: PropTypes.object,
   prev: PropTypes.object,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
+  avatar: PropTypes.string.isRequired
 };
 
 export default Post;
