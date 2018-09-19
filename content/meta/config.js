@@ -1,28 +1,28 @@
 module.exports = {
-  siteTitle: "HeroBlog - a GatsbyJS starter", // <title>
-  shortSiteTitle: "HeroBlog - GatsbyJS starter", // <title> ending for posts and pages
-  siteDescription: "HeroBlog is a GatsbyJS starter.",
-  siteUrl: "https://gatsby-starter-hero-blog.greglobinski.com",
+  siteTitle: "Gatsby blog", // <title>
+  shortSiteTitle: "GatsbyJS blog", // <title> ending for posts and pages
+  siteDescription: "GatsbyJS blog",
+  siteUrl: "https://www.chie4.com",
   pathPrefix: "",
   siteImage: "preview.jpg",
   siteLanguage: "en",
   // author
-  authorName: "greg lobinski",
-  authorTwitterAccount: "greglobinski",
+  authorName: "chie_4",
+  authorTwitterAccount: "chie4",
   // info
-  headerTitle: "greg lobinski",
-  headerSubTitle: "presents another one GatsbyJS starter",
+  headerTitle: "chie_4",
+  headerSubTitle: "Amateur arrangement",
   // manifest.json
-  manifestName: "HeroBlog - a GatsbyJS starter",
-  manifestShortName: "HeroBlog", // max 12 characters
+  manifestName: "a GatsbyJS Blog",
+  manifestShortName: "asdf", // max 12 characters
   manifestStartUrl: "/index.html",
   manifestBackgroundColor: "white",
   manifestThemeColor: "#666",
   manifestDisplay: "standalone",
   // social
   authorSocialLinks: [
-    { name: "github", url: "https://github.com/greglobinski" },
-    { name: "twitter", url: "https://twitter.com/greglobinski" },
-    { name: "facebook", url: "http://facebook.com/greglobinski" }
+    { name: "github", url: "https://github.com/chie4hao" },
+    { name: "twitter", url: "https://twitter.com/chie4hao" },
+    { name: "facebook", url: "http://facebook.com/hao.chie.3" }
   ]
 };
