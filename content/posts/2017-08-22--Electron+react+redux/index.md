@@ -56,8 +56,11 @@ const history = createBrowserHistory({
 });
 ```
 
-# 结尾
-
 &emsp;&emsp;
 
+# 结尾
+
 &emsp;&emsp;暂时先写这两条，遇到其他问题之后再补充。过几天可能会写一点redux相关的文章。不得不说redux想优化到极致真是太难了，要填的坑超多，强迫症用这个简直想撞墙（摊手）
+
+&emsp;&emsp;
+&emsp;&emsp;

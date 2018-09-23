@@ -43,7 +43,7 @@ const Post = props => {
       <Bodytext html={html} theme={theme} />
       <footer>
         <Share post={post} theme={theme} />
-        <Author note={authornote} theme={theme} avatar={avatar} />
+        {/* <Author note={authornote} theme={theme} avatar={avatar} /> */}
         <NextPrev next={nextPost} prev={prevPost} theme={theme} />
         <Comments slug={slug} facebook={facebook} theme={theme} />
       </footer>
