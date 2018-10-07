@@ -150,15 +150,13 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
         //   }
         // ]);
 
-        config.plugin("BundleAnalyzerPlugin", BundleAnalyzerPlugin, [
-          {
-            analyzerMode: "static",
-            reportFilename: "./report/treemap.html",
-            openAnalyzer: true,
-            logLevel: "error",
-            defaultSizes: "gzip"
-          }
-        ]);
+        config.plugin("BundleAnalyzerPlugin", BundleAnalyzerPlugin, [{
+          analyzerMode: "static",
+          reportFilename: "./report/treemap.html",
+          openAnalyzer: true,
+          logLevel: "error",
+          defaultSizes: "gzip"
+        }]);
 
         config.loader("yaml-loader", {
           test: /\.yaml$/,

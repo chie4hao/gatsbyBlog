@@ -21,14 +21,12 @@ const query = `{
   }
 }`;
 
-const queries = [
-  {
-    query,
-    transformer: ({ data }) => {
-      return data.allMarkdownRemark.edges.reduce(transformer, []);
-    }
+const queries = [{
+  query,
+  transformer: ({ data }) => {
+    return data.allMarkdownRemark.edges.reduce(transformer, []);
   }
-];
+}];
 
 module.exports = {
   siteMetadata: {
@@ -38,9 +36,8 @@ module.exports = {
     pathPrefix: config.pathPrefix,
     algolia: {
       appId: process.env.ALGOLIA_APP_ID ? process.env.ALGOLIA_APP_ID : "",
-      searchOnlyApiKey: process.env.ALGOLIA_SEARCH_ONLY_API_KEY
-        ? process.env.ALGOLIA_SEARCH_ONLY_API_KEY
-        : "",
+      searchOnlyApiKey: process.env.ALGOLIA_SEARCH_ONLY_API_KEY ?
+        process.env.ALGOLIA_SEARCH_ONLY_API_KEY : "",
       indexName: process.env.ALGOLIA_INDEX_NAME ? process.env.ALGOLIA_INDEX_NAME : ""
     },
     facebook: {
@@ -146,8 +143,7 @@ module.exports = {
         background_color: config.manifestBackgroundColor,
         theme_color: config.manifestThemeColor,
         display: config.manifestDisplay,
-        icons: [
-          {
+        icons: [{
             src: "/icons/icon-48x48.png",
             sizes: "48x48",
             type: "image/png"
@@ -207,19 +203,18 @@ module.exports = {
             }
           }
         `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }]
-                });
+        feeds: [{
+          serialize: ({ query: { site, allMarkdownRemark } }) => {
+            return allMarkdownRemark.edges.map(edge => {
+              return Object.assign({}, edge.node.frontmatter, {
+                description: edge.node.excerpt,
+                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                custom_elements: [{ "content:encoded": edge.node.html }]
               });
-            },
-            query: `
+            });
+          },
+          query: `
               {
                 allMarkdownRemark(
                   limit: 1000,
@@ -242,9 +237,8 @@ module.exports = {
                 }
               }
             `,
-            output: "/rss.xml"
-          }
-        ]
+          output: "/rss.xml"
+        }]
       }
     },
     {
