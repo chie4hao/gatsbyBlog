@@ -15,12 +15,12 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: `${separtorIndex ? "/" : ""}${slug.substring(shortSlugStart)}`
+      value: `${separtorIndex ? "/" : ""}${slug.substring(shortSlugStart)}`,
     });
     createNodeField({
       node,
       name: `prefix`,
-      value: separtorIndex ? slug.substring(1, separtorIndex) : ""
+      value: separtorIndex ? slug.substring(1, separtorIndex) : '',
     });
   }
 };
@@ -56,8 +56,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               }
             }
           }
-        `
-      ).then(result => {
+        `,
+      ).then((result) => {
         if (result.errors) {
           console.log(result.errors);
           reject(result.errors);
