@@ -1,5 +1,5 @@
 ---
-title: manjaro构建流程(备忘)
+title: 操作系统搭建流程(备忘)
 author: chie4
 ---
 
@@ -53,4 +53,17 @@ mv .emacs.d .emacs.d.bak
 mv .emacs .emacs.bak
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d.bak
 emacs --insecure
+```
+
+为konsole中的添加透明效果，在`~/.emacs.d/init.el`中添加如下代码,`~/.spacemacs`中配置就太多了，今后在逐渐完善。
+
+``` lisp
+(global-hl-line-mode 0)
+(defun set-background-for-terminal (&optional frame)
+  (or frame (setq frame (selected-frame)))
+  "unsets the background color in terminal mode"
+  (unless (display-graphic-p frame)
+    (set-face-background 'default "unspecified-bg" frame)))
+(add-hook 'after-make-frame-functions 'set-background-for-terminal)
+(add-hook 'window-setup-hook 'set-background-for-terminal)
 ```
