@@ -39,6 +39,6 @@ FB_APP_ID=...
 
 ### 博客构建流程
 
-因为是全静态站点，网站服务器上用nginx反向代理就完事了。而且整个站点打包体积不大，目前只有约30Mb，完全不需要在服务器上搭建博客构建所需的环境，只需在本机和远程服务器实现文件同步即可。目前同步工具使用[syncthing](https://github.com/syncthing/syncthing)，每次更新在本机运行`gatsby build`即可完成构建。
+因为是全静态站点，网站服务器上用nginx反向代理就完事了。而且整个站点打包体积不大，目前只有约30Mb，完全不需要在服务器上搭建博客构建所需的环境，只需在本机和远程服务器实现文件同步即可。目前同步工具使用[syncthing](https://github.com/syncthing/syncthing)，每次更新在本机运行`gatsby build`即可完成构建。（网站规模太小了，也懒得用`syncthing`了，直接用 `rsync` ，`sudo rsync -av --delete --rsh=ssh ~/github/gatsbyBlog/public chie4@110.10.178.135:~/` ）
 
 注意服务器上的ssl证书未设置成自动更新，需90天手动更新一次，否则会失效。

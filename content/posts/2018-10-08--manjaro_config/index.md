@@ -67,3 +67,18 @@ emacs --insecure
 (add-hook 'after-make-frame-functions 'set-background-for-terminal)
 (add-hook 'window-setup-hook 'set-background-for-terminal)
 ```
+
+常用代理
+
+``` bash
+git config --global http.proxy 'http://192.168.50.235:1080'
+git config --global https.proxy 'http://192.168.50.235:1080'
+
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
+
+export http_proxy=http://192.168.50.235:1080
+export https_proxy=http://192.168.50.235:1080
+unset ...
+```
