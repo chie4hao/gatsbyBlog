@@ -14,7 +14,7 @@ module.exports = {
   headerSubTitle: "Amateur arrangement",
   // manifest.json
   manifestName: "a GatsbyJS Blog",
-  manifestShortName: "asdf", // max 12 characters
+  manifestShortName: "chie4", // max 12 characters
   manifestStartUrl: "/index.html",
   manifestBackgroundColor: "white",
   manifestThemeColor: "#666",
