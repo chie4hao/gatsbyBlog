@@ -18,7 +18,7 @@ author: chie4
 
 &emsp;&emsp;
 
-&emsp;&emsp;最近一次出差导致半个月没练琴，回来一摸琴手指变得很生疏。摸了两天才逐渐找到之前的感觉，毕业之后那种整天练琴的时间少了很多，不过仍然没有放弃日常的手指训练，最近开了几首肖邦的练习曲，其中OP.10 NO.1 OP.25 NO.6算是其中难度相对较大的，磕磕绊绊练了三个月，OP.10 NO.1已经初步拿下，当然颗粒性和准确度还仍有欠缺，各位专业dalao轻喷啊。
+&emsp;&emsp;最近一次出差导致半个月没练琴，回来一摸琴手指变得很生疏。摸了两天才逐渐找到之前的感觉，毕业之后那种整天练琴的时间少了很多，不过仍然没有放弃日常的手指训练，最近试着玩了几首肖邦的练习曲，其中OP.10 NO.1 OP.25 NO.6算是其中难度相对较大的，磕磕绊绊练了三个月，OP.10 NO.1已经初步拿下，当然颗粒性和准确度还仍有欠缺，各位专业dalao轻喷啊。
 
 
 &emsp;&emsp;
@@ -26,3 +26,5 @@ author: chie4
 <div style="position:relative;width:100%;height:0;padding-bottom:73%">
 <iframe src="//player.bilibili.com/player.html?aid=34182056&cid=59879234&page=1" style="position:absolute;width:100%;height:100%;left:0;top:0;bottom:0;right:0;" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 <div/>
+
+&emsp;&emsp;
