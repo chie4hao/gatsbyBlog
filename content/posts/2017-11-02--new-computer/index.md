@@ -3,6 +3,8 @@ title: 新电脑来了！
 author: chie4
 cover: IMG_20171022_200719.jpg 
 categorie: "hardware"
+attachments:
+  - "./IMG_20171022_194237.jpg"
 ---
 
 &emsp;&emsp;我的新的amd x399平台的电脑已经组好了，用了一段时间挺稳定的。由于是新平台，主板bios和amd驱动都还有些不完善的地方，为达到极致的性能，我专门买了两块1T的960pro想组raid0，然而实际效果并不如ahci驱动下的随机读写分数，初步断定是主板bios或者raid驱动不完善导致的。
